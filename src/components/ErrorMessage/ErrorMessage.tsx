@@ -15,14 +15,19 @@
 
 // export default ErrorMessage;
 
-
 // ErrorMessage.tsx
-import PropTypes from 'prop-types';
-import styles from './ErrorMessage.module.css';
-import React from 'react';
+// import PropTypes from "prop-types";
+import styles from "./ErrorMessage.module.css";
+import React from "react";
+
+interface ErrorMessageProps {
+  message?: string;
+}
 
 const ErrorMessage = React.memo(
-  ({ message = 'An unexpected error occurred. Please try again later.' }) => {
+  ({
+    message = "An unexpected error occurred. Please try again later.",
+  }: ErrorMessageProps): JSX.Element => {
     return (
       <div className={styles.errorContainer}>
         <p className={styles.errorText}>{message}</p>
@@ -31,8 +36,8 @@ const ErrorMessage = React.memo(
   }
 );
 
-ErrorMessage.propTypes = {
-  message: PropTypes.string,
-};
+// ErrorMessage.propTypes = {
+//   message: PropTypes.string,
+// };
 
 export default ErrorMessage;

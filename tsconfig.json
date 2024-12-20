@@ -27,7 +27,10 @@
       "@features/*": ["features/*"],
       "@widgets/*": ["widgets/*"],
       "@entities/*": ["entities/*"],
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+
+       "include": ["src", "global.d.ts"]
+      
     },
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -36,5 +39,7 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true
+    
   }
+  
 }

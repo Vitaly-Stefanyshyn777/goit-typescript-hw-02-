@@ -57,27 +57,41 @@
 
 // export default ImageModal;
 
-
 // ImageModal.tsx
-import PropTypes from 'prop-types';
-import Modal from 'react-modal';
-import styles from './ImageModal.module.css';
-import React from 'react';
+// import PropTypes from 'prop-types';
+import Modal from "react-modal";
+import styles from "./ImageModal.module.css";
+// import React from 'react';
+
+interface ImageData {
+  url: string;
+  name?: string;
+}
+
+interface ImageModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  imageData?: ImageData;
+}
 
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
   },
   content: {
-    inset: '50% auto auto 50%',
-    transform: 'translate(-50%, -50%)',
-    padding: '0',
-    border: 'none',
-    background: 'transparent',
+    inset: "50% auto auto 50%",
+    transform: "translate(-50%, -50%)",
+    padding: "0",
+    border: "none",
+    background: "transparent",
   },
 };
 
-const ImageModal = ({ isOpen, onClose, imageData }) => {
+const ImageModal: React.FC<ImageModalProps> = ({
+  isOpen,
+  onClose,
+  imageData,
+}) => {
   if (!imageData || !imageData.url) return null;
 
   return (
@@ -98,7 +112,7 @@ const ImageModal = ({ isOpen, onClose, imageData }) => {
         <img
           className={styles.modalImage}
           src={imageData.url}
-          alt={imageData.name || 'Image'}
+          alt={imageData.name || "Image"}
           loading="lazy"
         />
       </div>
@@ -106,13 +120,13 @@ const ImageModal = ({ isOpen, onClose, imageData }) => {
   );
 };
 
-ImageModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  imageData: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    name: PropTypes.string,
-  }),
-};
+// ImageModal.propTypes = {
+//   isOpen: PropTypes.bool.isRequired,
+//   onClose: PropTypes.func.isRequired,
+//   imageData: PropTypes.shape({
+//     url: PropTypes.string.isRequired,
+//     name: PropTypes.string,
+//   }),
+// };
 
 export default ImageModal;
