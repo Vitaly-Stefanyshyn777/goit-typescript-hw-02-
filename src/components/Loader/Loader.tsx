@@ -31,8 +31,8 @@ import styles from "./Loader.module.css";
 import React from "react";
 
 interface LoaderProps {
-  size: number;
-  color: string;
+  size?: number;
+  color?: string;
 }
 
 // interface LoaderTypesProp {}
